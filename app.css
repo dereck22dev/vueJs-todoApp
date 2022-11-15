@@ -1,0 +1,224 @@
+/*****************   ROOT   *******************/
+
+:root {
+  --clr-principal:#006400;
+  --clr-principal-light:#006400da;
+  --clr-danger:#8b0000;
+  --clr-danger-light:#a02525;
+  --clr-light:#f0f8ff;
+  --clr-default:#fff;
+  --clr-dark:#111;
+  --clr-fade:#636363c2;
+}
+
+/*****************   INITIALIZE   *************/
+
+* {
+  margin: 0;
+  padding: 0;
+  color: var(--clr-default);
+  user-select: none;
+  outline: none;
+  cursor: pointer;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  transition: .5s;
+}
+
+/*************   UTILITY TOOLS   **************/
+
+.display-initial {
+  display: initial !important;
+}
+
+.display-none {
+  display: none;
+}
+
+.checked {
+  color: var(--clr-default);
+  background-color: var(--clr-fade);
+}
+
+/*****************   BODY   *******************/
+
+body {
+  height:100%;
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+}
+
+body > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/*****************   HEADER   ****************/
+
+header {
+  position: sticky;
+  top: -5px;
+  width: 100%;
+  padding: 15px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--clr-principal);
+  z-index: 2;
+  transition: .7s;
+}
+
+header a {
+  text-decoration: none;
+  font-weight: bold;
+}
+h1 {
+  margin-left: 70px;
+}
+
+/*****************   MAIN   *****************/
+
+main {
+  height: 100%;
+  margin: 70px;
+  padding:100px 50px 50px 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 5px solid var(--clr-principal);
+  border-radius: 3px;
+}
+
+ul {
+  width: 100%;
+  padding-right: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+}
+
+li {
+  position: relative;
+  width: 100%;
+  padding: 7px;
+  display: flex;
+  word-break: break-all;
+  gap: 20px;
+  align-items: center;
+  color: var(--clr-dark);
+  background-color: var(--clr-light);
+  border-radius: 5px;
+}
+
+i {
+  font-weight: 700;
+  transition: 0.5s;
+}
+
+i:hover {
+  transform: rotateZ(-45deg);
+}
+
+li span {
+  position: absolute;
+  right: -30px;
+  padding: 7px 8px;
+  background-color: var(--clr-principal);
+  border-radius: 0 5px 5px 0;
+
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  margin-bottom: 50px;
+}
+
+form > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 50px;
+}
+
+form > div:last-of-type {
+  justify-content: flex-start;
+}
+
+form label {
+  color: var(--clr-principal);
+  font-weight: bold;
+}
+
+#taskInput,
+select {
+  min-width: 130px;
+  padding: 7px;
+  color: var(--clr-dark);
+}
+
+select option {
+  color: var(--clr-dark);
+}
+
+select option:hover {
+  color: var(--clr-default);
+  background-color: var(--clr-principal);
+}
+
+
+#addBtn,
+#resetBtn {
+  padding: 10px 15px;
+  min-width: 70px;
+  border:none;
+  border-radius: 5px;
+  letter-spacing: .5px;
+  transition: .1s;
+}
+
+#addBtn {
+  background-color: var(--clr-principal-light);
+}
+
+#resetBtn {
+  background-color: var(--clr-danger-light);
+}
+
+#addBtn:hover,
+#resetBtn:hover {
+  transform: scale(0.95);
+}
+
+#errorFlag {
+  display: none;
+  width: 100%;
+  margin-block: 25px;
+  padding: 7px 10px;
+  font-family: monospace;
+  color: var(--clr-danger);
+  background-color: var(--clr-light);
+}
+
+@media screen and (max-width:920px){
+  main {
+    margin: 70px 30px;
+    padding: 50px;
+    border: 5px solid var(--clr-principal);
+    border-radius: 3px;
+}
+  form > div:last-of-type {
+    justify-content: center;
+  }  
+}

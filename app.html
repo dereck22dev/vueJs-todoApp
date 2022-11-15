@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!--meta-->
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!--title-->
+  <title>todo app</title>
+  <!--style link-->
+  <link rel="stylesheet" href="app.css" />
+  <!-- font awesome cdn-->
+  <script src="https://kit.fontawesome.com/b48549a02e.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div id="app">
+    <header>
+      <h1>todo app</h1>
+      <a href="https://github.com/Amour22/">follow me &#129505;!</a>
+    </header>
+    <main>
+      <div id="errorFlag" :class="isEmpty?show:mask">&#10060; ERROR: Can't add empty task!</div>
+      <form @submit.prevent="addTodo">
+        <div>
+          <label for="taskInput">ADD TASK</label>
+          <input type="text" name="taskInput" id="taskInput" v-model="todo" />
+          <button id="addBtn">add</button>
+          <button id="resetBtn" @click.prevent="resetTodos" @keyup.prevent="addTodo">reset</button>
+        </div>
+        <div>
+          <label for="filter">FILTER</label>
+          <select name="filter" id="filter" v-model="filterBy">
+            <option value="all">All</option>
+            <option value="completed">Completed</option>
+            <option value="notCompleted">Not completed</option>
+          </select>
+        </div>
+      </form>
+      <ul id="myList">
+        <!-- le contenu sera rempli avec vueJs -->
+        <li v-for="obj in todoFiltered" :key="obj.id" :class="obj.status?checked:notChecked">
+          <input type="checkbox" v-model="obj.status">
+          {{ obj.todo }}
+          <span><i class="fas fa-trash" @click="removeTodo(obj.todo)"></i></span>
+        </li>
+      </ul>
+    </main>
+  </div>
+  <script src="vue.global.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
